@@ -1,6 +1,6 @@
 {
-  "name": "angular-4-data-table",
-  "version": "0.4.6",
+  "name": "angular4-smart-table",
+  "version": "0.5.0",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -14,15 +14,20 @@
   ],
   "main": "src/index.ts",
   "typings": "src/index.ts",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MIt9/angular-4-data-table.git"
+    "url": "git+https://github.com/idhruvs/angular4-smart-table.git"
   },
-  "author": "Dmitrii Bilukha <siniidrozd@gmail.com> (http://donsamogon.com)",
+  "author": "Dhruv Shah <dhruv.shah4192@gmail.com>",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "@angular/compiler": "^5.2.10",
+    "@angular/compiler-cli": "^5.2.10",
+    "rollup": "^0.58.2",
+    "typescript": "^2.1.5",
+    "uglify-js": "^3.3.22"
+  },
   "dependencies": {
     "@angular/core": "^4.0.0",
     "@angular/common": "^4.0.1",
@@ -31,12 +36,11 @@
     "@types/node": "~6.0.60",
     "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",
-    "typescript": "2.1.5",
     "zone.js": "^0.8.12"
   },
   "false": {},
   "bugs": {
-    "url": "https://github.com/MIt9/angular-4-data-table/issues"
+    "url": "https://github.com/MIt9/angular4-smart-table/issues"
   },
-  "homepage": "https://github.com/MIt9/angular-4-data-table#readme"
+  "homepage": "https://github.com/MIt9/angular4-smart-table#readme"
 }

@@ -12,6 +12,7 @@ export class DataTableColumn implements OnInit {
     @Input() header: string;
     @Input() sortable = false;
     @Input() resizable = false;
+    @Input() searchable = true;
     @Input() property: string;
     @Input() styleClass: string;
     @Input() cellColors: CellCallback;

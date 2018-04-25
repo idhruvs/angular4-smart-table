@@ -365,4 +365,35 @@ export class DataTable implements DataTableParams, OnInit {
 		}
 		return true;
 	}
+
+	reset() {
+		this._limit=10;
+		this._offset = 0;
+		this.reloadItems();
+		// console.log(this._items);
+	}
+
+	// For converting keys to camel-case
+	private camelize(str) {
+		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+		  if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+		  return index == 0 ? match.toLowerCase() : match.toUpperCase();
+		});
+	  }
+
+	// Search for items based on the entered substrings
+	private searchItems(event, target) {
+		if(event.target.value != ''){
+			const searchedItems = [];
+			this._items.forEach(item  =>{
+				if( (String( item[this.camelize(target)] ).toLowerCase().includes(  event.target.value ) ) ) {
+					searchedItems.push(item);
+				}
+			});
+			this._items = [...searchedItems];
+		}
+		else{
+			this.reset()
+		}
+	}
 }
