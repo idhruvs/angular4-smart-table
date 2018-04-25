@@ -385,8 +385,9 @@ export class DataTable implements DataTableParams, OnInit {
 	private searchItems(event, target) {
 		if(event.target.value != ''){
 			const searchedItems = [];
+			const searchParameter = event.target.value.toLowerCase();
 			this._items.forEach(item  =>{
-				if( (String( item[this.camelize(target)] ).toLowerCase().includes(  event.target.value ) ) ) {
+				if( (String( item[this.camelize(target)] ).toLowerCase().includes(  searchParameter ) ) ) {
 					searchedItems.push(item);
 				}
 			});
