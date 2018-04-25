@@ -2,8 +2,9 @@
 <a href="https://nodei.co/npm/angular4-smart-table/"><img src="https://nodei.co/npm/angular4-smart-table.png"></a>
 
 
-
 <a href="https://angular4-smart-table-demo.herokuapp.com/">Demo</a>
+
+
 <a href="https://github.com/idhruvs/angular4-smart-table-demo">Sample Angular Code</a>
 
 This is fork of package [https://github.com/ggmod/angular-2-data-table] with additional features(https://github.com/ggmod/angular-2-data-table)
