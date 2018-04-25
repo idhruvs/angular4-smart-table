@@ -1,6 +1,10 @@
 ## Angular 4 Data Table
 <a href="https://nodei.co/npm/angular4-smart-table/"><img src="https://nodei.co/npm/angular4-smart-table.png"></a>
 
+
+
+<a href="https://angular4-smart-table-demo.herokuapp.com/">Demo</a>
+
 This is fork of package [https://github.com/ggmod/angular-2-data-table] with additional features(https://github.com/ggmod/angular-2-data-table)
 
 A simple Angular 4 data table, with built-in solutions for features including:
