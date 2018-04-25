@@ -1,4 +1,5 @@
 ## Angular 4 Data Table
+<a href="https://nodei.co/npm/angular4-smart-table/"><img src="https://nodei.co/npm/angular4-smart-table.png"></a>
 
 This is fork of package [https://github.com/ggmod/angular-2-data-table] with additional features(https://github.com/ggmod/angular-2-data-table)
 
