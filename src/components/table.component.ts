@@ -200,7 +200,7 @@ export class DataTable implements DataTableParams, OnInit {
 		};
 	}
 
-	_scheduledReload = 0;
+	_scheduledReload = null;
 
 	// for avoiding cascading reloads if multiple params are set at once:
 	_triggerReload() {

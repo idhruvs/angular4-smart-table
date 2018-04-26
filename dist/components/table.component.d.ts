@@ -57,7 +57,7 @@ export declare class DataTable implements DataTableParams, OnInit {
     _displayParams: DataTableParams;
     readonly displayParams: DataTableParams;
     _updateDisplayParams(): void;
-    _scheduledReload: number;
+    _scheduledReload: any;
     _triggerReload(): void;
     rowClick: EventEmitter<{}>;
     rowDoubleClick: EventEmitter<{}>;

@@ -33,7 +33,7 @@ var DataTable = /** @class */ (function () {
         this._reloading = false;
         this.reload = new core_1.EventEmitter();
         this._displayParams = {};
-        this._scheduledReload = 0;
+        this._scheduledReload = null;
         // event handlers:
         this.rowClick = new core_1.EventEmitter();
         this.rowDoubleClick = new core_1.EventEmitter();
