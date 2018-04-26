@@ -6,6 +6,7 @@ import { RowCallback } from '../types/row-callback.type';
 import { DataTableTranslations } from '../types/data-table-translations.type';
 export declare class DataTable implements DataTableParams, OnInit {
     private _items;
+    private pageItems;
     items: any[];
     itemCount: number;
     columns: QueryList<DataTableColumn>;
@@ -84,5 +85,6 @@ export declare class DataTable implements DataTableParams, OnInit {
     private _isResizeInLimit(columnElement, dx);
     reset(): void;
     private camelize(str);
+    private _search(array, searchParam, searchField);
     private searchItems(event, target);
 }

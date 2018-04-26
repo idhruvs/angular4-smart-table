@@ -10,6 +10,7 @@ var table_style_1 = require("./table.style");
 var DataTable = /** @class */ (function () {
     function DataTable() {
         this._items = [];
+        this.pageItems = [];
         this.header = true;
         this.pagination = true;
         this.pagination_range = false;
@@ -51,6 +52,7 @@ var DataTable = /** @class */ (function () {
         },
         set: function (items) {
             this._items = items;
+            this.pageItems = items;
             this._onReloadFinished();
         },
         enumerable: true,
@@ -232,6 +234,7 @@ var DataTable = /** @class */ (function () {
     };
     DataTable.prototype.sortColumn = function (column) {
         if (column.sortable) {
+            console.log(column);
             var ascending = this.sortBy === column.property ? !this.sortAsc : true;
             this.sort(column.property, ascending);
         }
@@ -352,21 +355,24 @@ var DataTable = /** @class */ (function () {
             return index == 0 ? match.toLowerCase() : match.toUpperCase();
         });
     };
+    DataTable.prototype._search = function (array, searchParam, searchField) {
+        var _this = this;
+        var searchedItems = [];
+        array.forEach(function (item) {
+            if ((String(item[_this.camelize(searchField)]).toLowerCase().includes(searchParam))) {
+                searchedItems.push(item);
+            }
+        });
+        return searchedItems;
+    };
     // Search for items based on the entered substrings
     // Search for items based on the entered substrings
     DataTable.prototype.searchItems = 
     // Search for items based on the entered substrings
     function (event, target) {
-        var _this = this;
+        var searchParameter = event.target.value.toLowerCase();
         if (event.target.value != '') {
-            var searchedItems_1 = [];
-            var searchParameter_1 = event.target.value.toLowerCase();
-            this._items.forEach(function (item) {
-                if ((String(item[_this.camelize(target)]).toLowerCase().includes(searchParameter_1))) {
-                    searchedItems_1.push(item);
-                }
-            });
-            this._items = searchedItems_1.slice();
+            this._items = this._search(this.pageItems, searchParameter, target);
         }
         else {
             this.reset();
