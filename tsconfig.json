@@ -30,8 +30,7 @@
         "inlineSources": true
     },
     "exclude": [
-        "node_modules",
-        "src/index.ts"
+        "node_modules"
     ],
     "files": [
         "src/index.ts"
