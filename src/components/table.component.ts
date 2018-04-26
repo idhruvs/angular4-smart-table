@@ -21,13 +21,15 @@ import { TABLE_STYLE } from "./table.style";
 export class DataTable implements DataTableParams, OnInit {
 
 	private _items: any[] = [];
+    private pageItems: any[] = [];
 
 	@Input() get items() {
 		return this._items;
 	}
 
 	set items(items: any[]) {
-		this._items = items;
+        this._items = items;
+        this.pageItems = items;
 		this._onReloadFinished();
 	}
 
@@ -259,6 +261,7 @@ export class DataTable implements DataTableParams, OnInit {
 
 	private sortColumn(column: DataTableColumn) {
 		if (column.sortable) {
+            console.log(column);
 			let ascending = this.sortBy === column.property ? !this.sortAsc : true;
 			this.sort(column.property, ascending);
 		}
@@ -384,20 +387,25 @@ export class DataTable implements DataTableParams, OnInit {
 		});
 	  }
 
+
+    private _search(array, searchParam, searchField): Array<any> {
+        const searchedItems:Array<any> = [];
+        array.forEach(item  =>{
+            if( (String( item[this.camelize(searchField)] ).toLowerCase().includes(  searchParam ) ) ) {
+                searchedItems.push(item);
+            }
+        });
+        return searchedItems;
+    }
+
 	// Search for items based on the entered substrings
 	private searchItems(event, target) {
-		if(event.target.value != ''){
-			const searchedItems: Array<any> = [];
-			const searchParameter = event.target.value.toLowerCase();
-			this._items.forEach(item  =>{
-				if( (String( item[this.camelize(target)] ).toLowerCase().includes(  searchParameter ) ) ) {
-					searchedItems.push(item);
-				}
-			});
-			this._items = [...searchedItems];
+        const searchParameter = event.target.value.toLowerCase();
+        if(event.target.value != ''){
+            this._items = this._search(this.pageItems, searchParameter, target);
 		}
 		else{
-			this.reset()
+            this.reset()
 		}
 	}
 }

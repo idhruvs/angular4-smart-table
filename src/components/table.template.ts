@@ -40,11 +40,8 @@ export const TABLE_TEMPLATE = `
                         <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox" [attr.aria-label]="translations.selectAllRows" />
                     </th>
                     <th scope="col" *ngFor="let column of columns" #th [hide]="!column.visible" 
-                        (keydown.enter)="headerClicked(column, $event)" (keydown.space)="headerClicked(column, $event)"
-                        [class.sortable]="column.sortable" [class.resizable]="column.resizable"
-                        [ngClass]="column.styleClassObject" class="column-header" [style.width]="column.width | px"
-                        [attr.aria-sort]="column.sortable ? (column.property === sortBy ? (sortAsc ? 'ascending' : 'descending') : 'none') : null"
-                        [attr.tabindex]="column.sortable ? '0' : null">
+                        [class.resizable]="column.resizable"
+                        [ngClass]="column.styleClassObject" class="column-header" [style.width]="column.width | px">
                         <input (keyup)="searchItems($event, column.header)" *ngIf="column.searchable" type="text" placeholder="Search" class="column-input">
                         <span *ngIf="column.resizable" class="column-resize-handle" (mousedown)="resizeColumnStart($event, column, th)"></span>
                     </th>
