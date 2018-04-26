@@ -1,6 +1,6 @@
 {
   "name": "angular4-smart-table",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -12,9 +12,14 @@
     "data table",
     "pagination"
   ],
-  "main": "src/index.ts",
-  "typings": "src/index.ts",
-  "scripts": {},
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular4smarttable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular4smarttable.umd.min.js",
+    "build": "npm run transpile && npm run package && npm run minify"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/idhruvs/angular4-smart-table.git"

@@ -1,34 +1,43 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "mapRoot": "/",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": false,
-    "preserveConstEnums": true,
-    "outDir": "dist/",
-    "rootDir": "src/",
-    "types" : ["node"],
-    "sourceMap": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
+        "baseUrl": ".",
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "mapRoot": "/",
+        "module": "commonjs",
+        "paths": {
+            "@angular/core": ["node_modules/@angular/core"],
+            "rxjs/*": ["node_modules/rxjs/*"]
+        },
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noImplicitAny": false,
+        "preserveConstEnums": true,
+        "outDir": "dist/",
+        "rootDir": "src/",
+        "types" : ["node"],
+        "sourceMap": true,
+        "target": "es5",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "inlineSources": true
+    },
+    "exclude": [
+        "node_modules",
+        "src/index.ts"
     ],
-    "lib": [
-      "es2016",
-      "dom"
+    "files": [
+        "src/index.ts"
     ],
-    "inlineSources": true
-  },
-  "exclude": [
-    "node_modules",
-    "index.ts"
-  ],
   "angularCompilerOptions": {
+    "strictMetadataEmit": true,
     "skipTemplateCodegen": true
   }
 }

@@ -72,7 +72,7 @@ export class DataTable implements DataTableParams, OnInit {
 
 	private _sortBy: string;
 	private _sortAsc = true;
-
+    private noRow: DataTableRow;
 	private _offset = 0;
 	private _limit = 10;
 
@@ -144,7 +144,7 @@ export class DataTable implements DataTableParams, OnInit {
 		this._initDefaultValues();
 		this._initDefaultClickEvents();
 		this._updateDisplayParams();
-
+        
 		if (this.autoReload && this._scheduledReload == null) {
 			this.reloadItems();
 		}
@@ -200,7 +200,7 @@ export class DataTable implements DataTableParams, OnInit {
 		};
 	}
 
-	_scheduledReload = null;
+	_scheduledReload = 0;
 
 	// for avoiding cascading reloads if multiple params are set at once:
 	_triggerReload() {
@@ -302,7 +302,7 @@ export class DataTable implements DataTableParams, OnInit {
 	}
 
 	onRowSelectChanged(row: DataTableRow) {
-
+        
 		// maintain the selectedRow(s) view
 		if (this.multiSelect) {
 			let index = this.selectedRows.indexOf(row);
@@ -315,7 +315,7 @@ export class DataTable implements DataTableParams, OnInit {
 			if (row.selected) {
 				this.selectedRow = row;
 			} else if (this.selectedRow === row) {
-				this.selectedRow = undefined;
+				this.selectedRow = this.noRow;
 			}
 		}
 
@@ -332,6 +332,9 @@ export class DataTable implements DataTableParams, OnInit {
 	// other:
 
 	get substituteItems() {
+        if(typeof(this.displayParams.limit) === 'undefined'){
+            this.displayParams.limit = 10;
+        } 
 		return Array.from({ length: this.displayParams.limit - this.items.length });
 	}
 
@@ -384,7 +387,7 @@ export class DataTable implements DataTableParams, OnInit {
 	// Search for items based on the entered substrings
 	private searchItems(event, target) {
 		if(event.target.value != ''){
-			const searchedItems = [];
+			const searchedItems: Array<any> = [];
 			const searchParameter = event.target.value.toLowerCase();
 			this._items.forEach(item  =>{
 				if( (String( item[this.camelize(target)] ).toLowerCase().includes(  searchParameter ) ) ) {

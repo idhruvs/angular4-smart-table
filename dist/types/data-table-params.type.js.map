@@ -1,0 +1,1 @@
+{"version":3,"file":"data-table-params.type.js","sourceRoot":"","sources":["../Users/dess/Desktop/personal_musings/angular4-smart-table/src/types/data-table-params.type.ts"],"names":[],"mappings":"","sourcesContent":["export interface DataTableParams {\n  offset?: number;\n  limit?: number;\n  sortBy?: string;\n  sortAsc?: boolean;\n}\n"]}
