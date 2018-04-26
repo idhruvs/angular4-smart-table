@@ -1,6 +1,6 @@
 {
   "name": "angular4-smart-table",
-  "version": "0.5.9",
+  "version": "0.6.0",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",

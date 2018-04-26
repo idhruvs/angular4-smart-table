@@ -22,15 +22,30 @@ The component can be used not just with local data, but remote resources too: fo
 
 The templates use bootstrap CSS class names, so the component requires a bootstrap .css file to be present in the application using it.
 
-### Additional Feature
+#### Additional Feature:
 * searchable columns
 
-## Installing:
-`npm install angular4-smart-table --save`
+#### Installation:
+	`npm install angular4-smart-table --save`
 
-## Adding to AngularProject
+#### Adding to AngularProject:
 
-`import { DataTableModule } from 'angular4-smart-table';`
+1. `app.module.ts`
+
+	`import { DataTableModule } from 'angular4-smart-table';`
+
+	`imports : [...,DataTableModule ]`
+
+2.  `app.component.ts`
+
+	`import { DataTable } from 'angular4-smart-table'`;
+    
+#### Additional Steps: 
+	1. Since the project uses glyphicons, include the following <link> tag in your index.html.
+	
+	  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+
+	2. Make sure bootstrap is present in your project.
   
 #### Licensing
 MIT License
