@@ -47,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/MIt9/angular4-smart-table/issues"
   },
-  "homepage": "https://github.com/MIt9/angular4-smart-table#readme"
+  "homepage": "https://github.com/MIt9/angular4-smart-table#readme",
+  "files": [
+      "dist"
+  ]
 }
